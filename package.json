@@ -4,7 +4,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "test:dryRun": "npx cypress-cucumber-diagnostics"
+    "test:dryRun": "npx cypress-cucumber-diagnostics",
+    "test:regression": "cypress run --env tags=@Regression ; node reports.js",
+    "test:smoke": "cypress run --env tags=@Smoke ; node reports.js",
+    "test:multiple": "cypress run --env tags=\"@Smoke or @Northwestern\" ; node reports.js",
+    "test:ignore": "cypress run --env tags=\"@Regression and not @HtmlElements\" ; node reports.js"
   },
   "keywords": [],
   "author": "",
@@ -19,9 +23,22 @@
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-prettier": "^5.1.3",
     "globals": "^15.3.0",
+    "multiple-cucumber-html-reporter": "^3.6.2",
     "prettier": "^3.3.0"
   },
   "cypress-cucumber-preprocessor": {
-    "stepDefinitions": "cypress/e2e/step-definitions/**/*.js"
+    "stepDefinitions": "cypress/e2e/step-definitions/**/*.js",
+    "html": {
+      "enabled": true,
+      "output": "reports/cucumber-html/cucumber-report.html"
+    },
+    "messages": {
+      "enabled": true,
+      "output": "reports/cucumber-ndjson/cucumber-report.ndjson"
+    },
+    "json": {
+      "enabled": true,
+      "output": "reports/cucumber-json/cucumber-report.json"
+    }
   }
 }

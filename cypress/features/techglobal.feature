@@ -10,7 +10,7 @@ Feature: Interaction with TechGlobal HtmlElements page
   @Smoke
   Scenario: Validate HTML elements card, Register and Sign in Buttons
     When user clicks on the "Register" button
-    Then the text under it should be "You clicked on “Register”"
+    Then the text under it should be "You clicked on “qweRegister”"
     When user clicks on the "Sign in" button
     Then the text under it should be "You clicked on “Sign in”"
 
