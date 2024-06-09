@@ -1,3 +1,4 @@
+@Regression
 Feature: Login Feature
 
   # Scenario: Validate Login Form
@@ -36,3 +37,7 @@ Feature: Login Feature
       | johndoe    | 123456   | Invalid Username entered! |
       | tomsmith   | 12345    | Invalid Username entered! |
       | TechGlobal | Test1234 | You are logged in         |
+
+  Scenario: Validate Table
+    Given user navigates to "https://www.techglobal-training.com/frontend/tables"
+    Then user gets the table

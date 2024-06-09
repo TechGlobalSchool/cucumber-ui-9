@@ -1,3 +1,4 @@
+@Regression
 Feature: Google Test
 
     Scenario: Google Search Bar
